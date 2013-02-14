@@ -12,9 +12,11 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
     when /^the home\s?page$/
       '/'
+    when /^the edit page for "(.*)"/
+      id = movie_id($1)
+      "/movies/#{id}/edit"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
@@ -32,6 +34,10 @@ module NavigationHelpers
           "Now, go and add a mapping in #{__FILE__}"
       end
     end
+  end
+
+  def movie_id(title)
+    Movie.find_by_title(title).id.to_s
   end
 end
 
