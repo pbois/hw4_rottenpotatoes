@@ -7,11 +7,7 @@ gem 'rails', '3.1.0'
 
 ###
 group :test do
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
-  gem 'capybara'
-  gem 'rspec-rails'
-  gem 'simplecov'
+
 end
 
 # for Heroku deployment - as described in Ap. A of ELLS book
@@ -20,6 +16,11 @@ group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'simplecov'
 end
 group :production do
   gem 'pg'
